@@ -103,15 +103,38 @@ int main() {
    
    limparTela(); 
     printComDelay("Bem Vindo ao RNG RPG onde a sorte tem que estar ao seu lado!", 40);
-    printComDelay("Para comecar, primeiro digite o nome do seu personagem: ", 50);
-    getline(cin, nomePersonagem);
-    printComDelay("Digite a idade do personagem: ", 40);
-    cin >> idade;
-    cin.ignore();
-    printComDelay("Digite o sexo do personagem: ", 40);
-    getline(cin, sexo);
-    printComDelay("Digite a raça do personagem: ", 40);
-    getline(cin, raca);
+    
+do {
+        printComDelay("Para começar, primeiro digite o nome do seu personagem: ", 50);
+        std::getline(std::cin, nomePersonagem);
+
+        printComDelay("Digite a idade do personagem: ", 40);
+        while (!(std::cin >> idade)) {
+            std::cin.clear(); // Limpa o estado de erro de cin
+            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); // Ignora a entrada inválida
+            printComDelay("Por favor, digite um número para a idade do personagem: ", 40);
+        }
+        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); // Limpa o buffer de entrada
+
+        printComDelay("Digite o sexo do personagem: ", 40);
+        std::getline(std::cin, sexo);
+
+        printComDelay("Digite a raça do personagem: ", 40);
+        std::getline(std::cin, raca);
+
+        std::cout << std::endl;
+        printComDelay("Confirme seu personagem, não poderá alterar seus dados posteriormente:", 40);
+        std::cout << "Nome: " << nomePersonagem << std::endl; 
+        std::cout << "Idade: " << idade << std::endl;
+        std::cout << "Sexo: " << sexo << std::endl;
+        std::cout << "Raça: " << raca << std::endl;
+
+        std::cout << "Caso queira redefinir, escreva 'Redefinir': ";
+        std::getline(std::cin, confirmacaoPerfil);
+
+    } while (confirmacaoPerfil == "Redefinir");
+
+    
     printComDelay("Escolha sua classe", 40);
     cout << "[1]---------------------------\n";
     mago.imprimirAtributos();
