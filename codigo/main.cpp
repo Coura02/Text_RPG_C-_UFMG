@@ -122,7 +122,17 @@ int main() {
     cout << "[4] --------------------------\n";
     tanker.imprimirAtributos();
     int escolha;
-    cin >> escolha;
+        do{
+        cin >> escolha;
+        if(escolha < 1 || escolha > 4){
+            printComDelay("Para sobreviver no labirinto voce precisa escolher uma classe", 40);
+            printComDelay("Escolha uma classe (1-4): ", 20);
+            std::cout << "1 = Mago" << endl;
+            std::cout << "2 = Guerreiro" << endl;
+            std::cout << "3 = Ladino" << endl;
+            std::cout << "4 = Tanker" << endl;
+        }
+    }while( escolha  < 1 || escolha > 4 );
     classe classejogador  =   escolherClasse(escolha);
     
     Personagem* jogador = new Personagem(nomePersonagem,idade,sexo,raca,classejogador);
