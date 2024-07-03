@@ -106,7 +106,11 @@ int main() {
     printComDelay("Para comecar, primeiro digite o nome do seu personagem: ", 50);
     getline(cin, nomePersonagem);
     printComDelay("Digite a idade do personagem: ", 40);
-    cin >> idade;
+    while (!(std::cin >> idade)) {
+        std::cin.clear(); // Limpa o estado de erro de cin
+        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); // Ignora a entrada inválida
+        printComDelay("Por favor, digite um número para a idade do personagem: ", 40);
+    }
     cin.ignore();
     printComDelay("Digite o sexo do personagem: ", 40);
     getline(cin, sexo);
