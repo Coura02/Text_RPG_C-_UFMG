@@ -10,6 +10,8 @@
 
 RNG RPG é um jogo de RPG baseado em turnos, onde a sorte desempenha um papel crucial em todas as ações. Prepare-se para enfrentar monstros, coletar itens e subir de nível, tudo isso enquanto escolhe as melhores estratégias para sobreviver.
 
+Todo a geração de itens, mostros e seus status são gerados randomicamentes, de maneira que o jogador nunca irá jogar a mesma partida mais de uma vez; isto também significa que sua jornada pode se mostrar tanto fácil do começo ao fim como leves chances de ser derrotado logo no começo do jogo.
+
 
 ## Funcionalidades
  * Criação de Personagem: O jogador pode criar um personagem escolhendo o nome, idade, sexo, raça e classe.
@@ -109,18 +111,19 @@ No inicio da partida após o jogador escolher sua classe será gerado de maneira
 
 * Limite de inventário
 
-O inventário limita o jogador até 10 itens.
+O inventário limita o jogado até 10 itens.
 
  * Dá a opção para o usuário apagar os itens armazenados.
 
-No final de cada rodada é aberta a opção de descartar um dos itens em seu inventário
+Após o jogador aceitar colocar o oitem em seu inventário, ele só poderá retirá-lo caso o inventário esteja cheio e ele pretenda substituir algum de seus itens com o novo recem recem gerado apos derrotar mais um monstro.
 
 
 > Notas : 
 
 > O jogo utiliza system("cls") para limpar a tela no Windows e system("clear") para sistemas Unix.
+> Uma condição muito utilizada foi a "if(cin.fail())" para identificar erros de entrada por parte do usuário, a tratativa para cada erro ocorreu de maneira espefífica para cada ação do jogo
 > Os atributos dos personagens aumentam em 2 pontos ao subir de nível.
-> Os atributos do monstros são gerados aleatoriamente, mas o nível de dificuldade multiplica os atributos continuamente.
+> Os atributos do monstros são gerados aleatoriamente, mas o nível de dificuldade multiplica os atributos continuamente. O nivel de dificuldade é gerado randômicamente a parte da entrada do "numero da sorte" que o jogador escolher
 > A defesa aumenta a resistência temporariamente e é resetada no próximo turno de ataque.
 > Divirta-se jogando RNG RPG e que a sorte esteja ao seu lado!
 
